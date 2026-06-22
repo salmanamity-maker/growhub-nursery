@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowHub Nursery | Premium Indoor & Outdoor Plants</title>
+    <style>
+        :root {
+            --primary-color: #55a630;
+            --primary-dark: #2b9348;
+            --secondary-color: #2d3748;
+            --accent-color: #e63946;
+            --bg-light: #f8f9fa;
+            --text-muted: #718096;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Main Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Product Grid Architecture */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 280;
+            object-fit: cover;
+            background-color: #ffffff;
+	    display: block;
+            padding: 10px 0;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-meta {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .current-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .old-price {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        /* Quick Order Banner */
+        .order-banner {
+            background-color: #e8f5e9;
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .order-banner h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        /* Footer & Contact info */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-contacts {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .footer-contacts a {
+            color: #a3e635;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav {
+                display: flex;
+                gap: 10px;
+            }
+            nav a {
+                margin: 0 5px;
+            }
+            .order-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">GrowHub<span>Nursery</span></div>
+            <nav>
+                <a href="#indoor">Indoor Plants</a>
+                <a href="#outdoor">Outdoor Plants</a>
+                <a href="#supplies">Pots & Care</a>
+                <a href="#contact">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <h1>Bring Life to Your Living Spaces</h1>
+        <p>Premium curated indoor and outdoor plants delivered healthy and ready to flourish in your home.</p>
+        <a href="https://wa.me/918329169872" class="cta-btn" target="_blank">Order Directly via WhatsApp</a>
+    </section>
+
+    <div class="container">
+
+        <!-- Direct Contact Quick Action -->
+        <div class="order-banner">
+            <div>
+                <h3>Ready to Order?</h3>
+                <p>Reach out directly to <strong>Saman Siddiqui</strong> to place your plant orders or ask care questions.</p>
+            </div>
+            <div>
+                <a href="tel:+918329169872" class="cta-btn" style="background-color: var(--secondary-color);">Call Now</a>
+            </div>
+        </div>
+
+        <!-- INDOOR PLANTS SECTION -->
+        <h2 id="indoor" class="section-title">Indoor Plants</h2>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="Images\Peace Lily.jpg" alt="Peace Lily" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Peace Lily</div>
+                        <div class="product-meta">Plant in pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.250</span>
+                        <span class="old-price">Rs.300</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Images\Areca Palm.jpg" alt="Areca Palm" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Areca Palm</div>
+                        <div class="product-meta">Bushy Plant in pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.280</span>
+                        <span class="old-price">Rs.400</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Images\Money Plant Enjoy.jpg" alt="Money Plant Enjoy" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Money Plant Enjoy</div>
+                        <div class="product-meta">In regular pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.80</span>
+                        <span class="old-price">Rs.100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Images\Money Plant Enjoy Hanging.jpg" alt="Money Plant Enjoy Hanging" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Money Plant Enjoy</div>
+                        <div class="product-meta">Bushy Hanging pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.200</span>
+                        <span class="old-price">Rs.250</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_syngonium_pink.jpg" alt="Syngonium Pink" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Syngonium (Pink)</div>
+                        <div class="product-meta">In pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.80</span>
+                        <span class="old-price">Rs.100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_syngonium_green.jpg" alt="Syngonium Green" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Syngonium (Green)</div>
+                        <div class="product-meta">In pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.80</span>
+                        <span class="old-price">Rs.100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_anthurium_pink.jpg" alt="Anthurium Pink" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Anthurium (Pink)</div>
+                        <div class="product-meta">In pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.360</span>
+                        <span class="old-price">Rs.500</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_anthurium_red.jpg" alt="Anthurium Red" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Anthurium (Red)</div>
+                        <div class="product-meta">Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.360</span>
+                        <span class="old-price">Rs.500</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_aglaonema_lipstick.jpg" alt="Aglaonema Lipstick" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Aglaonema Lipstick</div>
+                        <div class="product-meta">Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.300</span>
+                        <span class="old-price">Rs.400</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_star_snake_plant.jpg" alt="Star Snake Plant" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Star Snake Plant</div>
+                        <div class="product-meta">Premium low-maintenance plant</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.150</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_croton.jpg" alt="Croton" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Croton</div>
+                        <div class="product-meta">Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.200</span>
+                        <span class="old-price">Rs.350</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_dracaena_pink.jpg" alt="Dracaena Pink" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Dracaena Pink</div>
+                        <div class="product-meta">Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.190</span>
+                        <span class="old-price">Rs.250</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_petra_croton.jpg" alt="Petra Croton" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Petra Croton</div>
+                        <div class="product-meta">Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.190</span>
+                        <span class="old-price">Rs.250</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_dieffenbachia.jpg" alt="Dieffenbachia" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Dieffenbachia</div>
+                        <div class="product-meta">Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.250</span>
+                        <span class="old-price">Rs.350</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_dracaena_green.jpg" alt="Dracaena Green" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Dracaena Green</div>
+                        <div class="product-meta">Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.190</span>
+                        <span class="old-price">Rs.250</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_monstera_thai.jpg" alt="Monstera Thai Constellation" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Monstera Thai Constellation</div>
+                        <div class="product-meta">Highly collectible variegated plant - Black pot</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.700</span>
+                        <span class="old-price">Rs.900</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_aglaonema_pink_red.jpg" alt="Aglaonema Premium" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Aglaonema (Classic Red)</div>
+                        <div class="product-meta">Vibrant foliage variants</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.350</span>
+                        <span class="old-price">Rs.450</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_aglaonema_snow_queen.jpg" alt="Aglaonema Snow Queen" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Aglaonema Snow Queen</div>
+                        <div class="product-meta">Beautiful patterned white-green leaves</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.350</span>
+                        <span class="old-price">Rs.450</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_broken_heart.jpg" alt="Broken Heart with Moss Stick" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Broken Heart (Monstera Adansonii)</div>
+                        <div class="product-meta">Comes trained with Moss Stick</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.550</span>
+                        <span class="old-price">Rs.650</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_monstera_deliciosa.jpg" alt="Monstera deliciosa with Moss stick" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Monstera Deliciosa</div>
+                        <div class="product-meta">Large statement plant with Moss Stick</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.1000</span>
+                        <span class="old-price">Rs.1200</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_succulent.jpg" alt="Premium Succulents" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Assorted Succulents</div>
+                        <div class="product-meta">Varied beautiful standalone miniature options</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.120 - 150</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- OUTDOOR PLANTS SECTION -->
+        <h2 id="outdoor" class="section-title">Outdoor Plants</h2>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="path_to_mogra.jpg" alt="Mogra Plant" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Mogra Plant</div>
+                        <div class="product-meta">In growbag</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_jade.jpg" alt="Goodluck Jade Plant" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Goodluck Jade Plant</div>
+                        <div class="product-meta">In growbag</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_rose.jpg" alt="Rose Plant" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Rose Plant</div>
+                        <div class="product-meta">Available colors: Red / Pink / White (In Growbag)</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.60</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_hibiscus_red.jpg" alt="Hibiscus Red" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Hibiscus (Red)</div>
+                        <div class="product-meta">In Growbag</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_hibiscus_yellow.jpg" alt="Hibiscus Yellow" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Hibiscus (Yellow)</div>
+                        <div class="product-meta">In Growbag</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_bougainvillea_pink.jpg" alt="Bougainvillea Pink" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Bougainvillea (Pink)</div>
+                        <div class="product-meta">With functional pot included</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.250</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_bougainvillea_white.jpg" alt="Bougainvillea White" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Bougainvillea (White)</div>
+                        <div class="product-meta">With functional pot included</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.250</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- GARDENING SUPPLIES & POTS -->
+        <h2 id="supplies" class="section-title">Pots & Gardening Essential Supplies</h2>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="Images\Vermicompost.jpg" alt="Vermicompost" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Premium Vermicompost (सदाबहार बुस्टर)</div>
+                        <div class="product-meta">Nutrient-rich soil fertilizer nourishment</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.80</span>
+                        <span class="old-price">Rs.140</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_potting_mix.jpg" alt="Ready to use Potting Mix" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Ready-to-Use Potting Mix</div>
+                        <div class="product-meta">Perfect premium aeration formula</div>
+                    </div>
+                    <div class="price-box" style="flex-direction: column; align-items: flex-start; gap: 2px;">
+                        <span class="current-price">5KG — Rs.150</span>
+                        <span class="current-price">10KG — Rs.300</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_spray_bottle.jpg" alt="Pressure Spray Bottle" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">High-Pressure Sprayer Bottle</div>
+                        <div class="product-meta">Professional misting capability (4.5 Pints / 2L)</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.250</span>
+                        <span class="old-price">Rs.400</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_colorful_pots.jpg" alt="Colorful Pots" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Premium Glossy Colorful Pots</div>
+                        <div class="product-meta">Available in Red, Grey, White, Pink hues</div>
+                    </div>
+                    <div class="price-box" style="flex-direction: column; align-items: flex-start; gap: 2px;">
+                        <span class="current-price">6" Pot — Rs.55</span>
+                        <span class="current-price">8" Pot — Rs.100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_small_pots.jpg" alt="Small Colorful Pots" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Small Vibrant Colorful Pots</div>
+                        <div class="product-meta">Perfect layout matching square planters</div>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">Rs.30 <span style="font-size:12px; color:var(--text-muted); font-weight:normal;">/piece</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="path_to_galaxy_pots.jpg" alt="Galaxy Pots" class="product-img">
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Classic Galaxy Heavy Pots</div>
+                        <div class="product-meta">Durable terracotta aesthetic alternative build</div>
+                    </div>
+                    <div class="price-box" style="flex-direction: column; align-items: flex-start; gap: 2px;">
+                        <span class="current-price">6" — Rs.40</span>
+                        <span class="current-price">8" — Rs.50</span>
+                        <span class="current-price">10" — Rs.60</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer & Contact Section -->
+    <footer id="contact">
+        <h2>GrowHub Nursery</h2>
+        <p>Your one-stop destination for beautiful, vibrant green spaces.</p>
+        
+        <div class="footer-contacts">
+            <p><strong>Proprietor:</strong> Saman Siddiqui</p>
+            <p><strong>Call or WhatsApp to Order:</strong></p>
+            <p><a href="tel:+918329169872">+91 8329169872</a> or <a href="tel:+918796008100">+91 8796008100</a></p>
+        </div>
+        
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 20px;">&copy; 2026 GrowHub Nursery. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
