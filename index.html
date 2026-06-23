@@ -25,6 +25,7 @@
             background-color: var(--bg-light);
             color: var(--secondary-color);
             line-height: 1.6;
+            padding-bottom: 60px;
         }
 
         /* Header & Navigation */
@@ -55,6 +56,11 @@
             color: var(--primary-color);
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             text-decoration: none;
             color: var(--secondary-color);
@@ -65,6 +71,34 @@
 
         nav a:hover {
             color: var(--primary-color);
+        }
+
+        /* Cart Trigger Navigation Button */
+        .cart-trigger {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .cart-trigger:hover {
+            background: var(--primary-dark);
+        }
+
+        .cart-count {
+            background: white;
+            color: var(--primary-dark);
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 12px;
         }
 
         /* Hero Section */
@@ -84,21 +118,6 @@
             font-size: 18px;
             max-width: 600px;
             margin: 0 auto 25px auto;
-        }
-
-        .cta-btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background 0.3s;
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            background-color: var(--primary-dark);
         }
 
         /* Main Layout Container */
@@ -153,10 +172,10 @@
 
         .product-img {
             width: 100%;
-            height: 280;
-            object-fit: cover;
+            height: 280px;
+            object-fit: contain;
             background-color: #ffffff;
-	    display: block;
+            display: block;
             padding: 10px 0;
         }
 
@@ -178,13 +197,14 @@
             font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 15px;
+            min-height: 42px;
         }
 
         .price-box {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: auto;
+            margin-bottom: 15px;
         }
 
         .current-price {
@@ -197,6 +217,171 @@
             font-size: 16px;
             text-decoration: line-through;
             color: var(--text-muted);
+        }
+
+        /* Interactive Variants Selector Dropdown */
+        .variant-select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e0;
+            background-color: white;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--secondary-color);
+            outline: none;
+        }
+
+        .variant-select:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Action Buttons */
+        .add-to-cart-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Shopping Cart Flyout Sidebar Panel */
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            z-index: 1001;
+            transition: right 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            background: var(--secondary-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-items-container {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .cart-item-details h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+            max-width: 220px;
+        }
+
+        .cart-item-details p {
+            font-size: 13px;
+            color: var(--primary-dark);
+            font-weight: bold;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qty-btn {
+            background: #e2e8f0;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #edf2f7;
+            background: #f7fafc;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .checkout-btn {
+            background: #25d366; /* WhatsApp Brand Green */
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .checkout-btn:hover {
+            background: #128c7e;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1000;
+            display: none;
+        }
+
+        .cart-overlay.show {
+            display: block;
         }
 
         /* Quick Order Banner */
@@ -244,7 +429,8 @@
                 gap: 15px;
             }
             nav {
-                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 10px;
             }
             nav a {
@@ -259,7 +445,6 @@
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <div class="header-container">
             <div class="logo">GrowHub<span>Nursery</span></div>
@@ -268,509 +453,644 @@
                 <a href="#outdoor">Outdoor Plants</a>
                 <a href="#supplies">Pots & Care</a>
                 <a href="#contact">Contact Us</a>
+                <button class="cart-trigger" onclick="toggleCart()">
+                    🛒 Cart <span class="cart-count" id="cartCount">0</span>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Showcase Section -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>Your Selected Items</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items-container" id="cartItemsList">
+            <p style="text-align: center; color: var(--text-muted); margin-top: 40px;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total Amount:</span>
+                <span id="cartTotalValue">Rs.0</span>
+            </div>
+            <button class="checkout-btn" onclick="sendWhatsAppOrder()">Place Order via WhatsApp 💬</button>
+        </div>
+    </div>
+
     <section class="hero">
         <h1>Bring Life to Your Living Spaces</h1>
         <p>Premium curated indoor and outdoor plants delivered healthy and ready to flourish in your home.</p>
-        <a href="https://wa.me/918329169872" class="cta-btn" target="_blank">Order Directly via WhatsApp</a>
     </section>
 
     <div class="container">
 
-        <!-- Direct Contact Quick Action -->
         <div class="order-banner">
             <div>
-                <h3>Ready to Order?</h3>
-                <p>Reach out directly to <strong>Saman Siddiqui</strong> to place your plant orders or ask care questions.</p>
+                <h3>Need Custom Consulting?</h3>
+                <p>Reach out directly to <strong>Saman Siddiqui</strong> for specialized plant advice or structural landscape sizing help.</p>
             </div>
             <div>
-                <a href="tel:+918329169872" class="cta-btn" style="background-color: var(--secondary-color);">Call Now</a>
+                <a href="tel:+918329169872" style="background-color: var(--secondary-color); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">Call Now</a>
             </div>
         </div>
 
-        <!-- INDOOR PLANTS SECTION -->
         <h2 id="indoor" class="section-title">Indoor Plants</h2>
         <div class="product-grid">
             
             <div class="product-card">
-                <img src="Images\Peace Lily.jpg" alt="Peace Lily" class="product-img">
+                <img src="Images/Peace Lily.jpg" alt="Peace Lily" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Peace Lily</div>
                         <div class="product-meta">Plant in pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.250</span>
-                        <span class="old-price">Rs.300</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.250</span>
+                            <span class="old-price">Rs.300</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Peace Lily', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Areca Palm.jpg" alt="Areca Palm" class="product-img">
+                <img src="Images/Areca Palm.jpg" alt="Areca Palm" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Areca Palm</div>
                         <div class="product-meta">Bushy Plant in pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.280</span>
-                        <span class="old-price">Rs.400</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.280</span>
+                            <span class="old-price">Rs.400</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Areca Palm', 280)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Money Plant Enjoy.jpg" alt="Money Plant Enjoy" class="product-img">
+                <img src="Images/Money Plant Enjoy.jpg" alt="Money Plant Enjoy" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Money Plant Enjoy</div>
                         <div class="product-meta">In regular pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.80</span>
-                        <span class="old-price">Rs.100</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.80</span>
+                            <span class="old-price">Rs.100</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Money Plant Enjoy', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Money Plant Enjoy Hanging.jpg" alt="Money Plant Enjoy Hanging" class="product-img">
+                <img src="Images/Money Plant Enjoy Hanging.jpg" alt="Money Plant Enjoy Hanging" class="product-img">
                 <div class="product-info">
                     <div>
-                        <div class="product-name">Money Plant Enjoy</div>
+                        <div class="product-name">Money Plant Enjoy (Hanging)</div>
                         <div class="product-meta">Bushy Hanging pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.200</span>
-                        <span class="old-price">Rs.250</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.200</span>
+                            <span class="old-price">Rs.250</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Money Plant Enjoy (Hanging)', 200)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Syngonium Pink.jpg" alt="Syngonium Pink" class="product-img">
+                <img src="Images/Syngonium Pink.jpg" alt="Syngonium Pink" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Syngonium (Pink)</div>
                         <div class="product-meta">In pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.80</span>
-                        <span class="old-price">Rs.100</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.80</span>
+                            <span class="old-price">Rs.100</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Syngonium (Pink)', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Syngonium Green.jpg" alt="Syngonium Green" class="product-img">
+                <img src="Images/Syngonium Green.jpg" alt="Syngonium Green" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Syngonium (Green)</div>
                         <div class="product-meta">In pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.80</span>
-                        <span class="old-price">Rs.100</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.80</span>
+                            <span class="old-price">Rs.100</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Syngonium (Green)', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Anthurium Pink.jpg" alt="Anthurium Pink" class="product-img">
+                <img src="Images/Anthurium Pink.jpg" alt="Anthurium Pink" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Anthurium (Pink)</div>
                         <div class="product-meta">In pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.360</span>
-                        <span class="old-price">Rs.500</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.360</span>
+                            <span class="old-price">Rs.500</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Anthurium (Pink)', 360)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Anthurium Red.jpg" alt="Anthurium Red" class="product-img">
+                <img src="Images/Anthurium Red.jpg" alt="Anthurium Red" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Anthurium (Red)</div>
                         <div class="product-meta">Black pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.360</span>
-                        <span class="old-price">Rs.500</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.360</span>
+                            <span class="old-price">Rs.500</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Anthurium (Red)', 360)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Aglaonema lipstick.jpg" alt="Aglaonema Lipstick" class="product-img">
+                <img src="Images/Aglaonema lipstick.jpg" alt="Aglaonema Lipstick" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Aglaonema Lipstick</div>
                         <div class="product-meta">Black pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.300</span>
-                        <span class="old-price">Rs.400</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.300</span>
+                            <span class="old-price">Rs.400</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Aglaonema Lipstick', 300)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Star Snake Plant.jpg" alt="Star Snake Plant" class="product-img">
+                <img src="Images/Star Snake Plant.jpg" alt="Star Snake Plant" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Star Snake Plant</div>
                         <div class="product-meta">Premium low-maintenance plant</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.150</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.150</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Star Snake Plant', 150)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Croton Plant.jpg" alt="Croton" class="product-img">
+                <img src="Images/Croton Plant.jpg" alt="Croton" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Croton</div>
                         <div class="product-meta">Black pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.200</span>
-                        <span class="old-price">Rs.350</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.200</span>
+                            <span class="old-price">Rs.350</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Croton', 200)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Dracaena Pink.jpg" alt="Dracaena Pink" class="product-img">
+                <img src="Images/Dracaena Pink.jpg" alt="Dracaena Pink" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Dracaena Pink</div>
                         <div class="product-meta">Black pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.190</span>
-                        <span class="old-price">Rs.250</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.190</span>
+                            <span class="old-price">Rs.250</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Dracaena Pink', 190)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Petra Croton.jpg" alt="Petra Croton" class="product-img">
+                <img src="Images/Petra Croton.jpg" alt="Petra Croton" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Petra Croton</div>
                         <div class="product-meta">Black pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.190</span>
-                        <span class="old-price">Rs.250</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.190</span>
+                            <span class="old-price">Rs.250</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Petra Croton', 190)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Dieffenbachia.jpg" alt="Dieffenbachia" class="product-img">
+                <img src="Images/Dieffenbachia.jpg" alt="Dieffenbachia" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Dieffenbachia</div>
                         <div class="product-meta">Black pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.250</span>
-                        <span class="old-price">Rs.350</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.250</span>
+                            <span class="old-price">Rs.350</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Dieffenbachia', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Dracaena Green.jpg" alt="Dracaena Green" class="product-img">
+                <img src="Images/Dracaena Green.jpg" alt="Dracaena Green" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Dracaena Green</div>
                         <div class="product-meta">Black pot</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.190</span>
-                        <span class="old-price">Rs.250</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.190</span>
+                            <span class="old-price">Rs.250</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Dracaena Green', 190)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Monstera Thai Constellation.jpg" alt="Monstera Thai Constellation" class="product-img">
+                <img src="Images/Monstera Thai Constellation.jpg" alt="Monstera Thai Constellation" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Monstera Thai Constellation</div>
-                        <div class="product-meta">Highly collectible variegated plant - Black pot</div>
+                        <div class="product-meta">Highly collectible variegated plant</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.1200</span>
-                        <span class="old-price">Rs.1500</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.1200</span>
+                            <span class="old-price">Rs.1500</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Monstera Thai Constellation', 1200)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Anthurium Red.jpg" alt="Aglaonema Premium" class="product-img">
+                <img src="Images/Aglaonema.jpg" alt="Aglaonema Premium" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Aglaonema (Classic Red)</div>
                         <div class="product-meta">Vibrant foliage variants</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.350</span>
-                        <span class="old-price">Rs.450</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.350</span>
+                            <span class="old-price">Rs.450</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Aglaonema (Classic Red)', 350)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Aglaonema Snow Queen.jpg" alt="Aglaonema Snow Queen" class="product-img">
+                <img src="Images/Aglaonema Snow Queen.jpg" alt="Aglaonema Snow Queen" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Aglaonema Snow Queen</div>
                         <div class="product-meta">Beautiful patterned white-green leaves</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.350</span>
-                        <span class="old-price">Rs.450</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.350</span>
+                            <span class="old-price">Rs.450</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Aglaonema Snow Queen', 350)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Broken Heart.jpg" alt="Broken Heart with Moss Stick" class="product-img">
+                <img src="Images/Broken Heart.jpg" alt="Broken Heart with Moss Stick" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Broken Heart (Monstera Adansonii)</div>
                         <div class="product-meta">Comes trained with Moss Stick</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.550</span>
-                        <span class="old-price">Rs.650</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.550</span>
+                            <span class="old-price">Rs.650</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Broken Heart', 550)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Monstera deliciosa with Moss stick.jpg" alt="Monstera deliciosa with Moss stick" class="product-img">
+                <img src="Images/Monstera deliciosa with Moss stick.jpg" alt="Monstera deliciosa with Moss stick" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Monstera Deliciosa</div>
                         <div class="product-meta">Large statement plant with Moss Stick</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.1000</span>
-                        <span class="old-price">Rs.1200</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.1000</span>
+                            <span class="old-price">Rs.1200</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Monstera Deliciosa', 1000)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="path_to_succulent.jpg" alt="Premium Succulents" class="product-img">
+                <img src="Images/Succulent.jpg" alt="Premium Succulents" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Assorted Succulents</div>
-                        <div class="product-meta">Varied beautiful standalone miniature options</div>
+                        <div class="product-meta">Varied standalone miniature options</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.120 - 150</span>
+                    <div>
+                        <select class="variant-select" id="succulentSelect" onchange="updateSelectedPrice('succulentSelect', 'succulentPrice')">
+                            <option value="Standard Mini|120">Standard Miniature - Rs.120</option>
+                            <option value="Premium Variant|150">Premium Variant - Rs.150</option>
+                        </select>
+                        <div class="price-box">
+                            <span class="current-price" id="succulentPrice">Rs.120</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Assorted Succulents', 'succulentSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- OUTDOOR PLANTS SECTION -->
         <h2 id="outdoor" class="section-title">Outdoor Plants</h2>
         <div class="product-grid">
 
             <div class="product-card">
-                <img src="Images\Mogra Plant.jpg" alt="Mogra Plant" class="product-img">
+                <img src="Images/Mogra Plant.jpg" alt="Mogra Plant" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Mogra Plant</div>
                         <div class="product-meta">In growbag</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.50</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.50</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Mogra Plant', 50)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Goodluck Jade Plant.jpg" alt="Goodluck Jade Plant" class="product-img">
+                <img src="Images/Goodluck Jade Plant.jpg" alt="Goodluck Jade Plant" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Goodluck Jade Plant</div>
                         <div class="product-meta">In growbag</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.100</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.100</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Goodluck Jade Plant', 100)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Rose Plant.jpg" alt="Rose Plant" class="product-img">
+                <img src="Images/Rose Plant.jpg" alt="Rose Plant" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Rose Plant</div>
-                        <div class="product-meta">Available colors: Red / Pink / White (In Growbag)</div>
+                        <div class="product-meta">In Growbag</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.60</span>
+                    <div>
+                        <select class="variant-select" id="roseSelect">
+                            <option value="Red Color|60">Red Color - Rs.60</option>
+                            <option value="Pink Color|60">Pink Color - Rs.60</option>
+                            <option value="White Color|60">White Color - Rs.60</option>
+                        </select>
+                        <div class="price-box">
+                            <span class="current-price">Rs.60</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Rose Plant', 'roseSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Hibiscus Red.jpg" alt="Hibiscus Red" class="product-img">
+                <img src="Images/Hibiscus Red.jpg" alt="Hibiscus Red" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Hibiscus (Red)</div>
                         <div class="product-meta">In Growbag</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.50</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.50</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Hibiscus (Red)', 50)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Hibiscus Yellow.jpg" alt="Hibiscus Yellow" class="product-img">
+                <img src="Images/Hibiscus Yellow.jpg" alt="Hibiscus Yellow" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Hibiscus (Yellow)</div>
                         <div class="product-meta">In Growbag</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.50</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.50</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Hibiscus (Yellow)', 50)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Bougainvillea Pink.jpg" alt="Bougainvillea Pink" class="product-img">
+                <img src="Images/Bougainvillea Pink.jpg" alt="Bougainvillea Pink" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Bougainvillea (Pink)</div>
                         <div class="product-meta">With functional pot included</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.250</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.250</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Bougainvillea (Pink)', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Bougainvillea White.jpg" alt="Bougainvillea White" class="product-img">
+                <img src="Images/Bougainvillea White.jpg" alt="Bougainvillea White" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Bougainvillea (White)</div>
                         <div class="product-meta">With functional pot included</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.250</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.250</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Bougainvillea (White)', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- GARDENING SUPPLIES & POTS -->
         <h2 id="supplies" class="section-title">Pots & Gardening Essential Supplies</h2>
         <div class="product-grid">
 
             <div class="product-card">
-                <img src="Images\Vermicompost.jpg" alt="Vermicompost" class="product-img">
+                <img src="Images/Vermicompost.jpg" alt="Vermicompost" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Premium Vermicompost (सदाबहार बुस्टर)</div>
                         <div class="product-meta">Nutrient-rich soil fertilizer nourishment</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.80</span>
-                        <span class="old-price">Rs.140</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.80</span>
+                            <span class="old-price">Rs.140</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Premium Vermicompost', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Potting Mix.jpg" alt="Ready to use Potting Mix" class="product-img">
+                <img src="Images/Potting Mix.jpg" alt="Ready to use Potting Mix" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Ready-to-Use Potting Mix</div>
                         <div class="product-meta">Perfect premium aeration formula</div>
                     </div>
-                    <div class="price-box" style="flex-direction: column; align-items: flex-start; gap: 2px;">
-                        <span class="current-price">5KG — Rs.150</span>
-                        <span class="current-price">10KG — Rs.300</span>
+                    <div>
+                        <select class="variant-select" id="pottingMixSelect" onchange="updateSelectedPrice('pottingMixSelect', 'pottingMixPrice')">
+                            <option value="5KG Size|150">5KG Pack — Rs.150</option>
+                            <option value="10KG Size|300">10KG Pack — Rs.300</option>
+                        </select>
+                        <div class="price-box">
+                            <span class="current-price" id="pottingMixPrice">Rs.150</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Ready-to-Use Potting Mix', 'pottingMixSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Spray bottle.jpg" alt="Pressure Spray Bottle" class="product-img">
+                <img src="Images/Spray bottle.jpg" alt="Pressure Spray Bottle" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">High-Pressure Sprayer Bottle</div>
                         <div class="product-meta">Professional misting capability (4.5 Pints / 2L)</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.250</span>
-                        <span class="old-price">Rs.400</span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.250</span>
+                            <span class="old-price">Rs.400</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('High-Pressure Sprayer Bottle (2L)', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Colorful Pot.jpg" alt="Colorful Pots" class="product-img">
+                <img src="Images/Colorful Pot.jpg" alt="Colorful Pots" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Premium Glossy Colorful Pots</div>
                         <div class="product-meta">Available in Red, Grey, White, Pink hues</div>
                     </div>
-                    <div class="price-box" style="flex-direction: column; align-items: flex-start; gap: 2px;">
-                        <span class="current-price">6" Pot — Rs.55</span>
-                        <span class="current-price">8" Pot — Rs.100</span>
+                    <div>
+                        <select class="variant-select" id="colorfulPotsSelect" onchange="updateSelectedPrice('colorfulPotsSelect', 'colorfulPotsPrice')">
+                            <option value="6-inch variant|55">6" Pot — Rs.55</option>
+                            <option value="8-inch variant|100">8" Pot — Rs.100</option>
+                        </select>
+                        <div class="price-box">
+                            <span class="current-price" id="colorfulPotsPrice">Rs.55</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Premium Glossy Colorful Pots', 'colorfulPotsSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Small Colorful Pots.jpg" alt="Small Colorful Pots" class="product-img">
+                <img src="Images/Small Colorful Pots.jpg" alt="Small Colorful Pots" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Small Vibrant Colorful Pots</div>
                         <div class="product-meta">Perfect layout matching square planters</div>
                     </div>
-                    <div class="price-box">
-                        <span class="current-price">Rs.30 <span style="font-size:12px; color:var(--text-muted); font-weight:normal;">/piece</span></span>
+                    <div>
+                        <div class="price-box">
+                            <span class="current-price">Rs.30</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Small Vibrant Colorful Pot', 30)">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="Images\Galaxy Pots.jpg" alt="Galaxy Pots" class="product-img">
+                <img src="Images/Galaxy Pots.jpg" alt="Galaxy Pots" class="product-img">
                 <div class="product-info">
                     <div>
                         <div class="product-name">Classic Galaxy Heavy Pots</div>
                         <div class="product-meta">Durable terracotta aesthetic alternative build</div>
                     </div>
-                    <div class="price-box" style="flex-direction: column; align-items: flex-start; gap: 2px;">
-                        <span class="current-price">6" — Rs.40</span>
-                        <span class="current-price">8" — Rs.50</span>
-                        <span class="current-price">10" — Rs.60</span>
+                    <div>
+                        <select class="variant-select" id="galaxyPotsSelect" onchange="updateSelectedPrice('galaxyPotsSelect', 'galaxyPotsPrice')">
+                            <option value="6-inch variant|40">6" — Rs.40</option>
+                            <option value="8-inch variant|50">8" — Rs.50</option>
+                            <option value="10-inch variant|60">10" — Rs.60</option>
+                        </select>
+                        <div class="price-box">
+                            <span class="current-price" id="galaxyPotsPrice">Rs.40</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Classic Galaxy Heavy Pots', 'galaxyPotsSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -778,7 +1098,6 @@
         </div>
     </div>
 
-    <!-- Footer & Contact Section -->
     <footer id="contact">
         <h2>GrowHub Nursery</h2>
         <p>Your one-stop destination for beautiful, vibrant green spaces.</p>
@@ -791,6 +1110,125 @@
         
         <p style="font-size: 13px; color: var(--text-muted); margin-top: 20px;">&copy; 2026 GrowHub Nursery. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const panel = document.getElementById('cartPanel');
+            const overlay = document.getElementById('cartOverlay');
+            panel.classList.toggle('open');
+            overlay.classList.toggle('show');
+        }
+
+        function updateSelectedPrice(selectId, priceId) {
+            const selectEl = document.getElementById(selectId);
+            const priceVal = selectEl.value.split('|')[1];
+            document.getElementById(priceId).innerText = 'Rs.' + priceVal;
+        }
+
+        function addSelectedToCart(baseName, selectId) {
+            const selectEl = document.getElementById(selectId);
+            const selectVal = selectEl.value.split('|');
+            const fullItemName = `${baseName} (${selectVal[0]})`;
+            const calculatedPrice = parseInt(selectVal[1]);
+            addToCart(fullItemName, calculatedPrice);
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+            updateCartUI();
+            
+            // Instantly fly out sidebar panel for user visual confirmation
+            const panel = document.getElementById('cartPanel');
+            if(!panel.classList.contains('open')) {
+                toggleCart();
+            }
+        }
+
+        function changeQuantity(name, amount) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity += amount;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const cartCountElement = document.getElementById('cartCount');
+            const cartItemsList = document.getElementById('cartItemsList');
+            const cartTotalValue = document.getElementById('cartTotalValue');
+            
+            let totalItems = 0;
+            let totalAmount = 0;
+            
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = `<p style="text-align: center; color: var(--text-muted); margin-top: 40px;">Your cart is empty.</p>`;
+                cartCountElement.innerText = '0';
+                cartTotalValue.innerText = 'Rs.0';
+                return;
+            }
+            
+            let itemsHtml = '';
+            cart.forEach(item => {
+                totalItems += item.quantity;
+                totalAmount += (item.price * item.quantity);
+                
+                itemsHtml += `
+                    <div class="cart-item">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <p>Rs.${item.price} × ${item.quantity}</p>
+                        </div>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="changeQuantity('${item.name}', -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQuantity('${item.name}', 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsList.innerHTML = itemsHtml;
+            cartCountElement.innerText = totalItems;
+            cartTotalValue.innerText = 'Rs.' + totalAmount;
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert("Your cart is empty! Add items from the catalog before checking out.");
+                return;
+            }
+
+            let message = `🌿 *New Plant Order - GrowHub Nursery Website* 🌿\n\n`;
+            message += `Hello Saman, I would like to order the following items from the store:\n\n`;
+            
+            let grandTotal = 0;
+            cart.forEach((item, index) => {
+                const subTotal = item.price * item.quantity;
+                grandTotal += subTotal;
+                message += `${index + 1}. *${item.name}*\n   Qty: ${item.quantity} | subtotal: Rs.${subTotal}\n\n`;
+            });
+            
+            message += `----------------------------------\n`;
+            message += `💰 *Grand Total: Rs.${grandTotal}*\n----------------------------------\n\n`;
+            message += `Please confirm plant logistics availability and scheduling. Thanks!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "918329169872";
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 
 </body>
 </html>
