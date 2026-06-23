@@ -1151,17 +1151,6 @@
             }
         }
 
-        function changeQuantity(name, amount) {
-            const item = cart.find(item => item.name === name);
-            if (item) {
-                item.quantity += amount;
-                if (item.quantity <= 0) {
-                    cart = cart.filter(i => i.name !== name);
-                }
-                updateCartUI();
-            }
-        }
-
         function updateCartUI() {
             const cartCountElement = document.getElementById('cartCount');
             const cartItemsList = document.getElementById('cartItemsList');
@@ -1169,6 +1158,13 @@
             
             let totalItems = 0;
             let totalAmount = 0;
+            
+            // --- NEW: Reset all catalog buttons to default state first ---
+            const allCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            allCartButtons.forEach(btn => {
+                btn.innerText = "Add to Cart";
+                btn.style.backgroundColor = "var(--primary-color)";
+            });
             
             if (cart.length === 0) {
                 cartItemsList.innerHTML = `<p style="text-align: center; color: var(--text-muted); margin-top: 40px;">Your cart is empty.</p>`;
@@ -1181,6 +1177,18 @@
             cart.forEach(item => {
                 totalItems += item.quantity;
                 totalAmount += (item.price * item.quantity);
+                
+                // --- NEW: Find the matching catalog button and mark it as added ---
+                allCartButtons.forEach(btn => {
+                    // We check if the button data attribute matches the base item name
+                    const btnProdName = btn.getAttribute('data-product-name');
+                    
+                    // If the item name equals the button's registered product name
+                    if (btnProdName && item.name.startsWith(btnProdName)) {
+                        btn.innerText = `Added (${item.quantity} ✓)`;
+                        btn.style.backgroundColor = "var(--primary-dark)"; // Darker green or alternate accent highlight
+                    }
+                });
                 
                 itemsHtml += `
                     <div class="cart-item">
