@@ -219,7 +219,7 @@
             color: var(--text-muted);
         }
 
-        /* Interactive Variants Selector Dropdown */
+        /* Variants Dropdown Selection styling */
         .variant-select {
             width: 100%;
             padding: 8px;
@@ -232,10 +232,6 @@
             outline: none;
         }
 
-        .variant-select:focus {
-            border-color: var(--primary-color);
-        }
-
         /* Action Buttons */
         .add-to-cart-btn {
             background-color: var(--primary-color);
@@ -246,7 +242,7 @@
             font-weight: bold;
             cursor: pointer;
             width: 100%;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.1s;
         }
 
         .add-to-cart-btn:hover {
@@ -350,7 +346,7 @@
         }
 
         .checkout-btn {
-            background: #25d366; /* WhatsApp Brand Green */
+            background: #25d366;
             color: white;
             border: none;
             width: 100%;
@@ -384,7 +380,6 @@
             display: block;
         }
 
-        /* Quick Order Banner */
         .order-banner {
             background-color: #e8f5e9;
             border-left: 5px solid var(--primary-color);
@@ -403,7 +398,6 @@
             margin-bottom: 5px;
         }
 
-        /* Footer & Contact info */
         footer {
             background-color: var(--secondary-color);
             color: white;
@@ -488,7 +482,7 @@
         <div class="order-banner">
             <div>
                 <h3>Need Custom Consulting?</h3>
-                <p>Reach out directly to <strong>Saman Siddiqui</strong> for specialized plant advice or structural landscape sizing help.</p>
+                <p>Reach out directly to <strong>Saman Siddiqui</strong> for specialized plant advice or landscaping layout questions.</p>
             </div>
             <div>
                 <a href="tel:+918329169872" style="background-color: var(--secondary-color); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">Call Now</a>
@@ -510,7 +504,7 @@
                             <span class="current-price">Rs.250</span>
                             <span class="old-price">Rs.300</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Peace Lily', 250)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Peace Lily" onclick="addToCart('Peace Lily', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -527,7 +521,7 @@
                             <span class="current-price">Rs.280</span>
                             <span class="old-price">Rs.400</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Areca Palm', 280)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Areca Palm" onclick="addToCart('Areca Palm', 280)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -544,7 +538,7 @@
                             <span class="current-price">Rs.80</span>
                             <span class="old-price">Rs.100</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Money Plant Enjoy', 80)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Money Plant Enjoy" onclick="addToCart('Money Plant Enjoy', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -561,7 +555,7 @@
                             <span class="current-price">Rs.200</span>
                             <span class="old-price">Rs.250</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Money Plant Enjoy (Hanging)', 200)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Money Plant Enjoy (Hanging)" onclick="addToCart('Money Plant Enjoy (Hanging)', 200)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -578,7 +572,7 @@
                             <span class="current-price">Rs.80</span>
                             <span class="old-price">Rs.100</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Syngonium (Pink)', 80)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Syngonium (Pink)" onclick="addToCart('Syngonium (Pink)', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -595,7 +589,7 @@
                             <span class="current-price">Rs.80</span>
                             <span class="old-price">Rs.100</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Syngonium (Green)', 80)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Syngonium (Green)" onclick="addToCart('Syngonium (Green)', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -612,7 +606,7 @@
                             <span class="current-price">Rs.360</span>
                             <span class="old-price">Rs.500</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Anthurium (Pink)', 360)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Anthurium (Pink)" onclick="addToCart('Anthurium (Pink)', 360)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -629,7 +623,7 @@
                             <span class="current-price">Rs.360</span>
                             <span class="old-price">Rs.500</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Anthurium (Red)', 360)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Anthurium (Red)" onclick="addToCart('Anthurium (Red)', 360)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -646,7 +640,7 @@
                             <span class="current-price">Rs.300</span>
                             <span class="old-price">Rs.400</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Aglaonema Lipstick', 300)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Aglaonema Lipstick" onclick="addToCart('Aglaonema Lipstick', 300)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -662,7 +656,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.150</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Star Snake Plant', 150)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Star Snake Plant" onclick="addToCart('Star Snake Plant', 150)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -679,7 +673,7 @@
                             <span class="current-price">Rs.200</span>
                             <span class="old-price">Rs.350</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Croton', 200)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Croton" onclick="addToCart('Croton', 200)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -696,7 +690,7 @@
                             <span class="current-price">Rs.190</span>
                             <span class="old-price">Rs.250</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Dracaena Pink', 190)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Dracaena Pink" onclick="addToCart('Dracaena Pink', 190)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -713,7 +707,7 @@
                             <span class="current-price">Rs.190</span>
                             <span class="old-price">Rs.250</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Petra Croton', 190)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Petra Croton" onclick="addToCart('Petra Croton', 190)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -730,7 +724,7 @@
                             <span class="current-price">Rs.250</span>
                             <span class="old-price">Rs.350</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Dieffenbachia', 250)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Dieffenbachia" onclick="addToCart('Dieffenbachia', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -747,7 +741,7 @@
                             <span class="current-price">Rs.190</span>
                             <span class="old-price">Rs.250</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Dracaena Green', 190)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Dracaena Green" onclick="addToCart('Dracaena Green', 190)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -764,7 +758,7 @@
                             <span class="current-price">Rs.1200</span>
                             <span class="old-price">Rs.1500</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Monstera Thai Constellation', 1200)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Monstera Thai Constellation" onclick="addToCart('Monstera Thai Constellation', 1200)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -781,7 +775,7 @@
                             <span class="current-price">Rs.350</span>
                             <span class="old-price">Rs.450</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Aglaonema (Classic Red)', 350)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Aglaonema (Classic Red)" onclick="addToCart('Aglaonema (Classic Red)', 350)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -798,7 +792,7 @@
                             <span class="current-price">Rs.350</span>
                             <span class="old-price">Rs.450</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Aglaonema Snow Queen', 350)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Aglaonema Snow Queen" onclick="addToCart('Aglaonema Snow Queen', 350)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -815,7 +809,7 @@
                             <span class="current-price">Rs.550</span>
                             <span class="old-price">Rs.650</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Broken Heart', 550)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Broken Heart" onclick="addToCart('Broken Heart', 550)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -832,7 +826,7 @@
                             <span class="current-price">Rs.1000</span>
                             <span class="old-price">Rs.1200</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Monstera Deliciosa', 1000)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Monstera Deliciosa" onclick="addToCart('Monstera Deliciosa', 1000)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -852,7 +846,7 @@
                         <div class="price-box">
                             <span class="current-price" id="succulentPrice">Rs.120</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Assorted Succulents', 'succulentSelect')">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Assorted Succulents" onclick="addSelectedToCart('Assorted Succulents', 'succulentSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -873,7 +867,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.50</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Mogra Plant', 50)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Mogra Plant" onclick="addToCart('Mogra Plant', 50)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -889,7 +883,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.100</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Goodluck Jade Plant', 100)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Goodluck Jade Plant" onclick="addToCart('Goodluck Jade Plant', 100)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -899,7 +893,7 @@
                 <div class="product-info">
                     <div>
                         <div class="product-name">Rose Plant</div>
-                        <div class="product-meta">In Growbag</div>
+                        <div class="product-meta">Available colors: Red / Pink / White</div>
                     </div>
                     <div>
                         <select class="variant-select" id="roseSelect">
@@ -910,7 +904,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.60</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Rose Plant', 'roseSelect')">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Rose Plant" onclick="addSelectedToCart('Rose Plant', 'roseSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -926,7 +920,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.50</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Hibiscus (Red)', 50)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Hibiscus (Red)" onclick="addToCart('Hibiscus (Red)', 50)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -942,7 +936,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.50</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Hibiscus (Yellow)', 50)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Hibiscus (Yellow)" onclick="addToCart('Hibiscus (Yellow)', 50)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -958,7 +952,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.250</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Bougainvillea (Pink)', 250)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Bougainvillea (Pink)" onclick="addToCart('Bougainvillea (Pink)', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -974,7 +968,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.250</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Bougainvillea (White)', 250)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Bougainvillea (White)" onclick="addToCart('Bougainvillea (White)', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -996,7 +990,7 @@
                             <span class="current-price">Rs.80</span>
                             <span class="old-price">Rs.140</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Premium Vermicompost', 80)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Premium Vermicompost" onclick="addToCart('Premium Vermicompost', 80)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1016,7 +1010,7 @@
                         <div class="price-box">
                             <span class="current-price" id="pottingMixPrice">Rs.150</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Ready-to-Use Potting Mix', 'pottingMixSelect')">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Ready-to-Use Potting Mix" onclick="addSelectedToCart('Ready-to-Use Potting Mix', 'pottingMixSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1026,14 +1020,14 @@
                 <div class="product-info">
                     <div>
                         <div class="product-name">High-Pressure Sprayer Bottle</div>
-                        <div class="product-meta">Professional misting capability (4.5 Pints / 2L)</div>
+                        <div class="product-meta">Professional misting capability (2L)</div>
                     </div>
                     <div>
                         <div class="price-box">
                             <span class="current-price">Rs.250</span>
                             <span class="old-price">Rs.400</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('High-Pressure Sprayer Bottle (2L)', 250)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="High-Pressure Sprayer Bottle (2L)" onclick="addToCart('High-Pressure Sprayer Bottle (2L)', 250)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1053,7 +1047,7 @@
                         <div class="price-box">
                             <span class="current-price" id="colorfulPotsPrice">Rs.55</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Premium Glossy Colorful Pots', 'colorfulPotsSelect')">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Premium Glossy Colorful Pots" onclick="addSelectedToCart('Premium Glossy Colorful Pots', 'colorfulPotsSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1069,7 +1063,7 @@
                         <div class="price-box">
                             <span class="current-price">Rs.30</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart('Small Vibrant Colorful Pot', 30)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Small Vibrant Colorful Pot" onclick="addToCart('Small Vibrant Colorful Pot', 30)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1090,7 +1084,7 @@
                         <div class="price-box">
                             <span class="current-price" id="galaxyPotsPrice">Rs.40</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addSelectedToCart('Classic Galaxy Heavy Pots', 'galaxyPotsSelect')">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Classic Galaxy Heavy Pots" onclick="addSelectedToCart('Classic Galaxy Heavy Pots', 'galaxyPotsSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1101,13 +1095,11 @@
     <footer id="contact">
         <h2>GrowHub Nursery</h2>
         <p>Your one-stop destination for beautiful, vibrant green spaces.</p>
-        
         <div class="footer-contacts">
             <p><strong>Proprietor:</strong> Saman Siddiqui</p>
             <p><strong>Call or WhatsApp to Order:</strong></p>
             <p><a href="tel:+918329169872">+91 8329169872</a> or <a href="tel:+918796008100">+91 8796008100</a></p>
         </div>
-        
         <p style="font-size: 13px; color: var(--text-muted); margin-top: 20px;">&copy; 2026 GrowHub Nursery. All Rights Reserved.</p>
     </footer>
 
@@ -1144,10 +1136,20 @@
             }
             updateCartUI();
             
-            // Instantly fly out sidebar panel for user visual confirmation
             const panel = document.getElementById('cartPanel');
             if(!panel.classList.contains('open')) {
                 toggleCart();
+            }
+        }
+
+        function changeQuantity(name, amount) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity += amount;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+                updateCartUI();
             }
         }
 
@@ -1159,7 +1161,6 @@
             let totalItems = 0;
             let totalAmount = 0;
             
-            // --- NEW: Reset all catalog buttons to default state first ---
             const allCartButtons = document.querySelectorAll('.add-to-cart-btn');
             allCartButtons.forEach(btn => {
                 btn.innerText = "Add to Cart";
@@ -1178,15 +1179,11 @@
                 totalItems += item.quantity;
                 totalAmount += (item.price * item.quantity);
                 
-                // --- NEW: Find the matching catalog button and mark it as added ---
                 allCartButtons.forEach(btn => {
-                    // We check if the button data attribute matches the base item name
                     const btnProdName = btn.getAttribute('data-product-name');
-                    
-                    // If the item name equals the button's registered product name
                     if (btnProdName && item.name.startsWith(btnProdName)) {
                         btn.innerText = `Added (${item.quantity} ✓)`;
-                        btn.style.backgroundColor = "var(--primary-dark)"; // Darker green or alternate accent highlight
+                        btn.style.backgroundColor = "var(--primary-dark)";
                     }
                 });
                 
@@ -1237,6 +1234,5 @@
             window.open(whatsappUrl, '_blank');
         }
     </script>
-
 </body>
 </html>
