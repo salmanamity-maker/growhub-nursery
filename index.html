@@ -15,7 +15,6 @@
         }
 
         * {
-            box-shadow: border-box;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -226,7 +225,7 @@
             color: var(--text-muted);
         }
 
-        /* Inline Discount Badge System - Cleared from Image View */
+        /* Inline Pricing Discount Badge */
         .discount-badge {
             background-color: var(--accent-color);
             color: white;
@@ -234,7 +233,7 @@
             font-size: 12px;
             font-weight: bold;
             border-radius: 4px;
-            margin-left: auto; /* Aligns neatly to the right side of the pricing container */
+            margin-left: auto;
         }
 
         /* Interactive Variants Selector Dropdown */
@@ -966,25 +965,50 @@
                 </div>
             </div>
 
+            <!-- CATEGORY 1: ROSE SMALL IN GROWBAG -->
             <div class="product-card">
                 <div class="img-container">
-                    <img src="Images/Rose Plant.jpg" alt="Rose Plant" class="product-img">
+                    <img src="Images/Rose Plant.jpg" alt="Rose - Small in Growbag" class="product-img">
                 </div>
                 <div class="product-info">
                     <div>
-                        <div class="product-name">Rose Plant</div>
-                        <div class="product-meta">Available colors: Red / Pink / White</div>
+                        <div class="product-name">Rose - Small in Growbag</div>
+                        <div class="product-meta">Vibrant premium selections blooming in growbag packaging</div>
                     </div>
                     <div>
-                        <select class="variant-select" id="roseSelect" onchange="updateSelectedPrice('roseSelect', 'roseCardContainer')">
-                            <option value="Red Color|60|60">Red Color - Rs.60</option>
-                            <option value="Pink Color|60|60">Pink Color - Rs.60</option>
-                            <option value="White Color|60|60">White Color - Rs.60</option>
+                        <select class="variant-select" id="roseSmallSelect">
+                            <option value="Pink Color|60">Pink Color - Rs.60</option>
+                            <option value="White Color|60">White Color - Rs.60</option>
+                            <option value="Yellow Color|60">Yellow Color - Rs.60</option>
                         </select>
-                        <div class="price-box" id="roseCardContainer">
+                        <div class="price-box">
                             <span class="current-price">Rs.60</span>
                         </div>
-                        <button class="add-to-cart-btn" data-product-name="Rose Plant" onclick="addSelectedToCart('Rose Plant', 'roseSelect')">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Rose - Small in Growbag" onclick="addSelectedToCart('Rose - Small in Growbag', 'roseSmallSelect')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY 2: ROSE IN POT -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="Images/Rose Plant.jpg" alt="Rose - In Pot" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Rose - In Pot</div>
+                        <div class="product-meta">Healthy curated rose variations potted and setup to flourish</div>
+                    </div>
+                    <div>
+                        <select class="variant-select" id="rosePotSelect">
+                            <option value="Pink Color|120">Pink Color - Rs.120</option>
+                            <option value="White Color|120">White Color - Rs.120</option>
+                            <option value="Yellow Color|120">Yellow Color - Rs.120</option>
+                        </select>
+                        <div class="price-box">
+                            <span class="current-price">Rs.120</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-name="Rose - In Pot" onclick="addSelectedToCart('Rose - In Pot', 'rosePotSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1025,38 +1049,50 @@
                 </div>
             </div>
 
+            <!-- CATEGORY 1: BOUGAINVILLEA SMALL IN GROWBAG -->
             <div class="product-card">
                 <div class="img-container">
-                    <img src="Images/Bougainvillea Pink.jpg" alt="Bougainvillea Pink" class="product-img">
+                    <img src="Images/Bougainvillea Pink.jpg" alt="Bougainvillea - Small in Growbag" class="product-img">
                 </div>
                 <div class="product-info">
                     <div>
-                        <div class="product-name">Bougainvillea (Pink)</div>
-                        <div class="product-meta">With functional pot included</div>
+                        <div class="product-name">Bougainvillea - Small in Growbag</div>
+                        <div class="product-meta">Beautiful starter plant variations blooming in secure growbags</div>
                     </div>
                     <div>
+                        <select class="variant-select" id="bougainvilleaSmallSelect">
+                            <option value="Pink Color|100">Pink Color - Rs.100</option>
+                            <option value="White Color|100">White Color - Rs.100</option>
+                            <option value="Yellow Color|100">Yellow Color - Rs.100</option>
+                        </select>
                         <div class="price-box">
-                            <span class="current-price">Rs.250</span>
+                            <span class="current-price">Rs.100</span>
                         </div>
-                        <button class="add-to-cart-btn" data-product-name="Bougainvillea (Pink)" onclick="addToCart('Bougainvillea (Pink)', 250)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Bougainvillea - Small in Growbag" onclick="addSelectedToCart('Bougainvillea - Small in Growbag', 'bougainvilleaSmallSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
+            <!-- CATEGORY 2: BOUGAINVILLEA BIG IN 8" POT -->
             <div class="product-card">
                 <div class="img-container">
-                    <img src="Images/Bougainvillea White.jpg" alt="Bougainvillea White" class="product-img">
+                    <img src="Images/Bougainvillea White.jpg" alt="Bougainvillea - Big in 8\" Pot" class="product-img">
                 </div>
                 <div class="product-info">
                     <div>
-                        <div class="product-name">Bougainvillea (White)</div>
-                        <div class="product-meta">With functional pot included</div>
+                        <div class="product-name">Bougainvillea - Big in 8" Pot</div>
+                        <div class="product-meta">Large established accent statement structure in an 8-inch robust planter pot</div>
                     </div>
                     <div>
+                        <select class="variant-select" id="bougainvilleaBigSelect">
+                            <option value="Pink Color|350">Pink Color - Rs.350</option>
+                            <option value="White Color|350">White Color - Rs.350</option>
+                            <option value="Yellow Color|350">Yellow Color - Rs.350</option>
+                        </select>
                         <div class="price-box">
-                            <span class="current-price">Rs.250</span>
+                            <span class="current-price">Rs.350</span>
                         </div>
-                        <button class="add-to-cart-btn" data-product-name="Bougainvillea (White)" onclick="addToCart('Bougainvillea (White)', 250)">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product-name="Bougainvillea - Big in 8\" Pot" onclick="addSelectedToCart('Bougainvillea - Big in 8\" Pot', 'bougainvilleaBigSelect')">Add to Cart</button>
                     </div>
                 </div>
             </div>
